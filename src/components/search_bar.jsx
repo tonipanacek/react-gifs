@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 
 
 class SearchBar extends Component {
+  handleSearch = (event) => {
+    console.log(event.target.value);
+    this.props.searchFunction(event.target.value);
+  }
+
   render() {
     return(
-      <div>
-        <input type="text" class="form-control form-search" />
-      </div>
-      )
+      <input type="text" className="form-control form-search"
+      onChange={this.handleSearch} defaultValue="b" />
+    );
   }
 }
 
