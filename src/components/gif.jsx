@@ -9,6 +9,11 @@ class Gif extends Component {
     }
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    // don't call render if props.id didn't change
+    return nextProps.id !== this.props.id;
+  }
+
   render() {
     const src = `https://media.giphy.com/media/${this.props.id}/200.gif`;
     return(
